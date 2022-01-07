@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Agregar Cliente</title>
+</head>
+
+<body class="container">
+    <form action="#" th:action="@{/addCustomer}" th:object="${customer}" method="post">
+
+        <div class="row mb-4">
+            <div class="col">
+                <div class="form-outline">
+                    <label class="form-label" for="name">Nombre:</label>
+                    <input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Name">
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="form-outline">
+                    <label class="form-label" for="lastname1">Primer apellido:</label>
+                    <input class="form-control" type="text" th:field="*{lastname1}" id="lastname1" placeholder="lastname1">
+                    <span th:if="${#fields.hasErrors('lastname1')}" th:errors="*{lastname1}"></span>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="form-outline">
+                    <label class="form-label" for="lastname2">Segundo apellido:</label>
+                    <input class="form-control" type="text" th:field="*{lastname2}" id="lastname2" placeholder="lastname2">
+                    <span th:if="${#fields.hasErrors('lastname2')}" th:errors="*{lastname2}"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-outline mb-4">
+            <label class="form-label" for="idn">Documento de Identidad:</label>
+            <input class="form-control" type="text" th:field="*{idn}" id="idn" placeholder="idn">
+            <span th:if="${#fields.hasErrors('idn')}" th:errors="*{idn}"></span>
+        </div>
+        
+        <div class="form-outline mb-4">
+            <label class="form-label" for="birthdate">Fecha de nacimiento:</label>
+            <input class="form-control" type="text" th:field="*{birthdate}" id="birthdate" name="birthdate" placeholder="dd-MM-yyyy" value="01-06-2002">
+            <span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></span>
+        </div>
+        
+        <input class="btn btn-primary btn-block mb-4" type="submit" value="Añadir cliente">
+    </form>
+</body>
+
+</html>
